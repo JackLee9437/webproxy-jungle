@@ -1,0 +1,8 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "csapp.h": "c",
+        "signal.h": "c",
+        "socket.h": "c"
+    }
+}

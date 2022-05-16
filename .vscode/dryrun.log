@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/ubuntu/webproxy-jungle'
+gcc -g -Wall -c proxy.c
+gcc -g -Wall -c csapp.c
+gcc -g -Wall proxy.o csapp.o -o proxy -lpthread
+make: Leaving directory '/home/ubuntu/webproxy-jungle'
+ 

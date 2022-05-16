@@ -36,6 +36,7 @@ int main(int argc, char **argv)
     exit(1);
   }
 
+  // 프록시 구현시 프록시 서버에서 오는것만 받을 수 있도록 수정해 줄 필요 있어보임.
   listenfd = Open_listenfd(argv[1]); // Creating Listening Socket Discriptor
   while (1)
   {
@@ -48,6 +49,7 @@ int main(int argc, char **argv)
     doit(connfd);  // line:netp:tiny:doit
     Close(connfd); // line:netp:tiny:close
   }
+  return 0;
 }
 
 /* --------------- 연결된 client에 대해서 한 HTTP 트랜잭션 처리 --------------- */
