@@ -36,8 +36,9 @@ int main(int argc, char **argv)
     exit(1);
   }
 
-  // 프록시 구현시 프록시 서버에서 오는것만 받을 수 있도록 수정해 줄 필요 있어보임.
+  // 프록시 구현시 프록시 서버에서 오는것만 받을 수 있도록 수정해 줄 필요 있어보임?
   listenfd = Open_listenfd(argv[1]); // Creating Listening Socket Discriptor
+
   while (1)
   {
     clientlen = sizeof(clientaddr);
@@ -73,8 +74,6 @@ void doit(int fd)
     return;
   }
   read_requesthdrs(&rio); // 나머지 request header 부분 버림
-
-  printf("HTTP version of connected client : %s\n", version);
 
   /* Parse URI from GET request */
   is_static = parse_uri(uri, filename, cgiargs); // uri 파싱 및 정적/동적 판단
@@ -114,7 +113,9 @@ void clienterror(int fd, char *cause, char *errnum, char *shortmsg, char *longms
   /* Build the HTTP response body */
   // sprintf는 buffer 변수에 내용을 '덮어씀' -> 중첩해서 작성
   sprintf(body, "<html><title>Tiny Error</title>");
-  sprintf(body, "%s<body bgcolor='ffffff'>\r\n",
+  sprintf(body, "%s<body bgcolor="
+                "fffff"
+                ">\r\n",
           body);
   sprintf(body, "%s%s: %s\r\n", body, errnum, shortmsg);
   sprintf(body, "%s<p>%s: %s\r\n", body, longmsg, cause);
@@ -183,7 +184,7 @@ void serve_static(int fd, char *filename, int filesize, char *method)
 
   /* Send response headers to clinet */
   get_filetype(filename, filetype); // filename으로부터 파일 확장자 확인하여 return해줄 content-type 세팅함
-  sprintf(buf, "HTTP/1,.0 200 OK\r\n");
+  sprintf(buf, "HTTP/1.0 200 OK\r\n");
   sprintf(buf, "%sServer: Tiny Web Server\r\n", buf);
   sprintf(buf, "%sConnection: close\r\n", buf);
   sprintf(buf, "%sContent-length: %d\r\n", buf, filesize);
@@ -242,7 +243,6 @@ void serve_dynamic(int fd, char *filename, char *cgiargs, char *method)
     // 자식프로세스의 stout 파일식별자를 fd(클라이언트 소켓)으로 덮어써줌
     // -> 실행되는 프로그램에서는 실행시키는 프로세스에서의 클라이언트 소켓을 알 수 없으므로 stout에 클라이언트 소켓을 세팅하여 stout으로 출력시 클라이언트에게 응답이 가도록 함
     Dup2(fd, STDOUT_FILENO);
-    printf("filename : %s\n", filename);
     Execve(filename, arglist, environ); // 컨텐츠 실행함
   }
   Wait(NULL); // 자식프로세스 종료되기까지 기다림
