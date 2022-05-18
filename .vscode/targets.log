@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue May 17 13:11:18 2022
+# Make data base, printed on Wed May 18 01:18:03 2022
 
 # Variables
 
@@ -57,7 +57,7 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/ubuntu
 # environment
-SSH_CONNECTION = 143.248.220.176 59712 172.31.46.49 22
+SSH_CONNECTION = 143.248.220.176 60769 172.31.46.49 22
 # environment
 PATH = /home/ubuntu/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
@@ -65,7 +65,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-10013b2a-cbd9-4786-9151-08e79274ace7.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-fe0a73c3-59f7-464a-ac70-9ee2c5c384e4.sock
 # makefile (from 'Makefile', line 9)
 LDFLAGS = -lpthread
 # default
@@ -109,7 +109,7 @@ SHLVL = 1
 # makefile (from 'Makefile', line 7)
 CC = gcc
 # environment
-XDG_SESSION_ID = 95
+XDG_SESSION_ID = 105
 # environment
 USER = ubuntu
 # makefile
@@ -127,7 +127,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 143.248.220.176 59712 22
+SSH_CLIENT = 143.248.220.176 60769 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -165,9 +165,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 51713, inode 258791): 22 files, no impossibilities.
+# . (device 51713, inode 258791): 21 files, no impossibilities.
 
-# 22 files, no impossibilities in 1 directories.
+# 21 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -207,7 +207,7 @@ Makefile:
 proxy.o: proxy.c csapp.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
-#  Last modified 2022-05-17 02:18:28.040920162
+#  Last modified 2022-05-17 16:22:32.754073682
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -233,7 +233,7 @@ proxy.o: proxy.c csapp.h
 
 proxy: proxy.o csapp.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-17 02:18:28.208921093
+#  Last modified 2022-05-17 16:22:32.914074572
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -257,7 +257,7 @@ csapp.o: csapp.c csapp.h
 # Not a target:
 proxy.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-17 06:16:12.068389778
+#  Last modified 2022-05-17 16:22:58.198215151
 #  File has been updated.
 #  Successfully updated.
 
@@ -277,6 +277,7 @@ clean:
 # Not a target:
 csapp.h:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-05-12 05:31:06.214505104
 #  File has been updated.
 #  Successfully updated.
@@ -289,12 +290,12 @@ csapp.h:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 29 / storage = 260 B / avg = 8 B
-# current buf: size = 8162 B / used = 260 B / count = 29 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 249 B / avg = 8 B
+# current buf: size = 8162 B / used = 249 B / count = 28 / avg = 8 B
 
-# strcache performance: lookups = 51 / hit rate = 43%
+# strcache performance: lookups = 50 / hit rate = 44%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=2/51=4%
-# Finished Make data base on Tue May 17 13:11:18 2022
+# Load=28/8192=0%, Rehash=0, Collisions=1/50=2%
+# Finished Make data base on Wed May 18 01:18:03 2022
 
  

@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "csapp.h"
 
 /* Recommended max cache and object sizes */
@@ -22,6 +21,7 @@ static const char *prox_conn_key = "Proxy-Connection";
 static const char *host_key = "Host";
 
 /* Prototypes */
+void *thread(void *vargp);
 void doit(int fd);                                                                                      /* --------------- 연결된 client에 대해서 유효성 확인 및 요청에 대한 응답 처리 --------------- */
 void clienterror(int fd, char *cause, char *errnum, char *shortmsg, char *longmsg);                     /* --------------- 확실한 error에 대해서 처리하여 client에게 응답함 --------------- */
 void serve(int fd, char *method, char *uri, char *version, rio_t *rio);                                 /* 서버로 요청 및 응답받은 내용 반환 */
@@ -32,10 +32,11 @@ int Open_endServer(char *hostname, int port);                                   
 // proxy server main function
 int main(int argc, char **argv)
 {
-  int listenfd, connfd;                  // listening socket, Connecting socket discriptor
+  int listenfd, *connfdp = NULL;         // listening socket, Connecting socket discriptor
   char hostname[MAXLINE], port[MAXLINE]; // Hostname & Port of Client Request
   socklen_t clientlen;                   // size of slientaddr stucture
   struct sockaddr_storage clientaddr;    // structure of client address storage
+  pthread_t tid;
 
   /* Check command line args */
   if (argc != 2) // assert(argc !=2)
@@ -48,14 +49,24 @@ int main(int argc, char **argv)
   while (1)
   {
     clientlen = sizeof(clientaddr);
-    connfd = Accept(listenfd, (SA *)&clientaddr,
-                    &clientlen); // line:netp:tiny:accept
+    connfdp = (int *)Malloc(sizeof(int));
+    *connfdp = Accept(listenfd, (SA *)&clientaddr,
+                      &clientlen); // line:netp:tiny:accept
     Getnameinfo((SA *)&clientaddr, clientlen, hostname, MAXLINE, port, MAXLINE,
                 0);
     printf("Accepted connection from (%s, %s)\n", hostname, port);
-    doit(connfd);  // line:netp:tiny:doit
-    Close(connfd); // line:netp:tiny:close
+    Pthread_create(&tid, NULL, thread, (void *)connfdp);
   }
+}
+
+void *thread(void *vargp)
+{
+  int connfd = *((int *)vargp);
+  Pthread_detach(pthread_self());
+  Free(vargp);
+  doit(connfd);
+  Close(connfd);
+  return NULL;
 }
 
 /* --------------- 연결된 client에 대해서 유효성 확인 및 요청에 대한 응답 처리 --------------- */
