@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed May 18 01:18:03 2022
+# Make data base, printed on Thu May 19 05:40:08 2022
 
 # Variables
 
@@ -39,7 +39,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{}}
 # environment
-_ = /home/ubuntu/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/node
+_ = /home/ubuntu/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/node
 # makefile (from 'Makefile', line 8)
 CFLAGS = -g -Wall
 # makefile (from 'Makefile', line 1)
@@ -57,15 +57,15 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/ubuntu
 # environment
-SSH_CONNECTION = 143.248.220.176 60769 172.31.46.49 22
+SSH_CONNECTION = 143.248.220.176 52592 172.31.46.49 22
 # environment
-PATH = /home/ubuntu/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /home/ubuntu/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-fe0a73c3-59f7-464a-ac70-9ee2c5c384e4.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-88b08a33-455a-4152-b3f1-eae4f02a8f2a.sock
 # makefile (from 'Makefile', line 9)
 LDFLAGS = -lpthread
 # default
@@ -109,7 +109,7 @@ SHLVL = 1
 # makefile (from 'Makefile', line 7)
 CC = gcc
 # environment
-XDG_SESSION_ID = 105
+XDG_SESSION_ID = 176
 # environment
 USER = ubuntu
 # makefile
@@ -118,6 +118,8 @@ USER = ubuntu
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
+# environment
+OLDPWD = /home/ubuntu/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # default
 .VARIABLES := 
 # automatic
@@ -127,11 +129,11 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 143.248.220.176 60769 22
+SSH_CLIENT = 143.248.220.176 52592 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-BROWSER = /home/ubuntu/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/helpers/browser.sh
+BROWSER = /home/ubuntu/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/helpers/browser.sh
 # environment
 VSCODE_HANDLES_SIGPIPE = true
 # default
@@ -157,7 +159,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 MOTD_SHOWN = pam
 # variable set hash-table stats:
-# Load=73/1024=7%, Rehash=0, Collisions=9/103=9%
+# Load=74/1024=7%, Rehash=0, Collisions=9/104=9%
 
 # Pattern-specific Variable Values
 
@@ -207,7 +209,7 @@ Makefile:
 proxy.o: proxy.c csapp.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
-#  Last modified 2022-05-17 16:22:32.754073682
+#  Last modified 2022-05-19 01:42:02.921116984
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -233,7 +235,7 @@ proxy.o: proxy.c csapp.h
 
 proxy: proxy.o csapp.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-17 16:22:32.914074572
+#  Last modified 2022-05-19 01:42:03.093117956
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -257,7 +259,7 @@ csapp.o: csapp.c csapp.h
 # Not a target:
 proxy.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-17 16:22:58.198215151
+#  Last modified 2022-05-19 02:10:41.230698888
 #  File has been updated.
 #  Successfully updated.
 
@@ -277,7 +279,6 @@ clean:
 # Not a target:
 csapp.h:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-05-12 05:31:06.214505104
 #  File has been updated.
 #  Successfully updated.
@@ -296,6 +297,6 @@ csapp.h:
 # strcache performance: lookups = 50 / hit rate = 44%
 # hash-table stats:
 # Load=28/8192=0%, Rehash=0, Collisions=1/50=2%
-# Finished Make data base on Wed May 18 01:18:03 2022
+# Finished Make data base on Thu May 19 05:40:08 2022
 
  

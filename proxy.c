@@ -5,7 +5,7 @@
 #define MAX_CACHE_SIZE 1049000 // 최대 캐싱할 수 있는 사이즈
 #define MAX_OBJECT_SIZE 102400 // 최대 캐싱할 수 있는 obj 사이즈
 #define CACHE_OBJS_COUNT 10    // 최대 캐싱할 수 있는 obj 개수
-#define LRU_MAGIC_NUMBER 10    // 최대 우선순위 숫자
+#define LRU_MAGIC_NUMBER 100   // 최대 우선순위 숫자
 
 /* constants for building HTTP Request headers */
 /* You won't lose style points for including this long line in your code */
@@ -342,12 +342,8 @@ int cache_isCached(char *request)
     startRead(i);                                                            // 각각 캐시블럭에 대해서 읽을 수 있는 타이밍에 읽기 시작해서
     if (cache.blocks[i].isOccupied && !strcmp(request, cache.blocks[i].req)) // 캐싱되어있다면
     {
-      endRead(i); // 읽기 종료해줘서 다른 쓰레드가 읽을 수 있게 해주고
-
-      startWrite(i);                               // 읽은 캐시는 다시 사용될 수 있으므로 우선순위를 높여주기 위해 쓰기 시작
-      cache.blocks[i].priority = LRU_MAGIC_NUMBER; // 우선순위 높여주고
-      lowerPriorty(i);                             // 나머지 우선순위 낮춰주고
-      endWrite(i);                                 // 쓰기 완료
+      lowerPriorty(i); // 찾은 캐시블럭의 우선순위를 상대적으로 높이기 위해 나머지 우선순위 낮춰주고
+      endRead(i);      // 읽기 종료해줘서 다른 쓰레드가 읽을 수 있게 해주고
 
       return i; // 찾은 캐싱된 위치의 인덱스 반환
     }

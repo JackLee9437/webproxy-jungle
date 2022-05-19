@@ -8,10 +8,6 @@
  */
 #include "csapp.h"
 
-// 코드 짤때 디버깅까지 고려해서
-// 애초에 짜면서 printf, assert(from assert.h) 까지 작성해주기!!!
-// 시스템 콜 호출시 실패시 -1 반환되는데, 에러메시지 띄우려면 perror 함수 사용하면 됨.
-
 void doit(int fd);                                                       // 연결된 client에 대해서 한 HTTP 트랜잭션 처리
 void read_requesthdrs(rio_t *rp);                                        // 불필요한 request header 부분 버림
 int parse_uri(char *uri, char *filename, char *cgiargs);                 // URI 분석하여 filename과 cgiargs를 적절히 parsing하고, 정적 요청인지 동적 요청인지 판단하여 리턴함
